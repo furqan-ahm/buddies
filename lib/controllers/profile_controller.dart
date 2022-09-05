@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:task/controllers/auth_controller.dart';
 import 'package:task/root.dart';
+import 'package:task/screens/auth/login.dart';
 
 import '../models/user.dart';
 
@@ -46,7 +47,7 @@ class ProfileController extends GetxController{
 
   signOut(){
     _authController.signOut();
-    Get.off(Root());
+    Get.off(Login());
   }
 
 

@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task/controllers/bindings/startup_bindings.dart';
-import 'package:task/root.dart';
 import 'package:task/screens/splash.dart';
 
 void main() async{
