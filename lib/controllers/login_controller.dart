@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task/controllers/auth_controller.dart';
+import 'package:task/screens/user/user_panel.dart';
 
 class LoginController extends GetxController{
 
@@ -26,8 +27,12 @@ class LoginController extends GetxController{
   login()async{
     if(formKey.currentState!.validate()){
       loading.value = true;
-      await authController.login(emailController.text, passwordController.text);
+      final result = await authController.login(emailController.text, passwordController.text);
       loading.value = false;
+
+      if(result){
+        Get.off(UserPanel());
+      }
     }
   }
 

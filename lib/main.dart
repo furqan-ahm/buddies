@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           initialBinding: StartUpBindings(),
           theme: ThemeData(
-            primarySwatch: Colors.blue, 
+            primarySwatch: Colors.lightBlue, 
           ),
           home: const Splash(),
         );

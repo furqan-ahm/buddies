@@ -46,7 +46,9 @@ class Search extends GetWidget<SearchController> {
                       style: TextStyle(color: Colors.white),
                     ),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        controller.createChatRoom(user);
+                      },
                       icon: Icon(Icons.message_rounded),
                       color: Colors.white,
                     ),

@@ -17,6 +17,7 @@ class UserPanel extends GetView<UserPanelController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: Colors.teal,
       body: SafeArea(
         child: Obx(

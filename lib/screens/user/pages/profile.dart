@@ -15,6 +15,7 @@ class ProfilePage extends GetWidget<ProfileController> {
       height: Size.infinite.height,
       color: Colors.teal,
       child: Center(child: Obx(() {
+        if(controller.currentUser.value==null)return Container();
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
@@ -25,9 +26,9 @@ class ProfilePage extends GetWidget<ProfileController> {
                 radius: 80,
                 backgroundColor: Colors.blueGrey.shade700,
                 foregroundColor: Colors.white,
-                foregroundImage: controller.currentUser.value.photoUrl == null
+                foregroundImage: controller.currentUser.value!.photoUrl == null
                     ? null
-                    : Image.network(controller.currentUser.value.photoUrl!).image,
+                    : Image.network(controller.currentUser.value!.photoUrl!).image,
                 child: Align(
                   alignment: Alignment.bottomRight + const Alignment(0, 0),
                   child: GestureDetector(
@@ -45,7 +46,7 @@ class ProfilePage extends GetWidget<ProfileController> {
                 height: 20,
               ),
               Text(
-                controller.currentUser.value.displayName ?? '',
+                controller.currentUser.value!.displayName ?? '',
                 style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
               const SizedBox(

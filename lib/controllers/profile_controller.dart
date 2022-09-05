@@ -16,14 +16,14 @@ class ProfileController extends GetxController{
   final storage = FirebaseStorage.instance;
 
 
-  late Rx<MyUser> currentUser;
+  late Rx<MyUser?> currentUser;
 
   @override
   void onInit() {
 
     FirebaseAuth.instance.userChanges().listen(_userListener);
 
-    currentUser=_authController.user.value!.obs;
+    currentUser=_authController.user.value.obs;
     super.onInit();
   }
 
@@ -36,11 +36,11 @@ class ProfileController extends GetxController{
     final result = await ImagePicker().pickImage(source: ImageSource.gallery);
     if(result!=null) {
       
-      await storage.ref(currentUser.value.userId).child('profile.${result.path.split('.').last}').putFile(File(result.path));
-      final url =await storage.ref(currentUser.value.userId).child('profile.${result.path.split('.').last}').getDownloadURL();
+      await storage.ref(currentUser.value?.userId).child('profile.${result.path.split('.').last}').putFile(File(result.path));
+      final url =await storage.ref(currentUser.value?.userId).child('profile.${result.path.split('.').last}').getDownloadURL();
 
       FirebaseAuth.instance.currentUser?.updatePhotoURL(url);
-      FirebaseFirestore.instance.collection('users').doc(currentUser.value.userId).update({'photoUrl':url});
+      FirebaseFirestore.instance.collection('users').doc(currentUser.value?.userId).update({'photoUrl':url});
     } 
   }
 

@@ -41,6 +41,25 @@ final searchFieldDecoration=InputDecoration(
                   ),
               );
 
+final messageFieldDecoration=InputDecoration(
+                  labelStyle: const TextStyle(color: Colors.white),
+                  prefixIconColor: Colors.white,
+                  hintText: 'say hi',
+                  focusColor: Colors.white,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: Colors.white)
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(color: Colors.white, width: 2)
+                  ),
+              );
+
 
 
 
